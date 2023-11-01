@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 
+from src.routes import AlarmRoute
+
 from Decouple import config
 
 app = Flask(__name__)
@@ -18,5 +20,6 @@ def not_found(error=None):
 if __name__ == '__main__':
     app.config.from_object(config['development'])
 
+    app.register_blueprint(AlarmRoute.main, url_prefix='/')
 
     app.run(host="0.0.0.0")
