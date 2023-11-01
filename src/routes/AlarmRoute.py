@@ -12,13 +12,13 @@ def add_alarm():
             return JsonMessage.message("Json empty")
         else:
             try:
-                id_alarm = request["id_alarm"]
+                id_alarm = request.json["id_alarm"]
                 time = request.json["time_alarm"]
                 mode = request.json["mode"]
 
                 alarm.add_alarm(id=id_alarm,time=time,mode=mode)
 
-                return JsonMessage.message()
+                return JsonMessage.message("agregado la alarma")
             except Exception as ex:
                 print(str(ex))
                 return JsonMessage.message_error(ex)
@@ -29,7 +29,7 @@ def add_alarm():
     
 @main.route('/', methods=['GET'])
 def list_alarms():
-    active_alarm = alarm.get_alarms
+    active_alarm = alarm.get_alarms()
     return jsonify({'alarmas': active_alarm})
 
 @main.route('/delete', methods=['DELETE'])
