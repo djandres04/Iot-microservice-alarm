@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 
-from src.utils import JsonMessage
-from src.utils import alarm
+from utils import JsonMessage
+from utils import alarm
 
 main = Blueprint('alarm_blueprint',__name__)
 

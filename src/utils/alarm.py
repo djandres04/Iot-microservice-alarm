@@ -1,6 +1,6 @@
 import threading
 
-from src.utils.MosquittoMessage import publish_message
+from utils.MosquittoMessage import publish_message
 
 # Diccionario para almacenar las alarmas
 alarms = {}

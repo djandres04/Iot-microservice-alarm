@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 
-from src.routes import AlarmRoute
+from routes import AlarmRoute
 
 from config import config
 
 app = Flask(__name__)
+
 
 @app.errorhandler(404)
 def not_found(error=None):
